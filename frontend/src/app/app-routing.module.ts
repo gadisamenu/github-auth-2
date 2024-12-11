@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HOME_ROUTE } from './constants/routes';
-import { HomeComponent } from './home/home.component';
+import { HOME_ROUTE } from './constants/app.routes';
 
 const routes: Routes = [
   {
@@ -11,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: HOME_ROUTE,
-    component: HomeComponent,
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 

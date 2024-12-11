@@ -1,0 +1,39 @@
+<div class="container main">
+  <form
+    style="display: flex; justify-content: space-around; align-items: center"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Active Integrations</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let structure of collections" [value]="structure">
+          {{ structure }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Entity</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let structure of collections" [value]="structure">
+          {{ structure }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Placeholder" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button
+      mat-flat-button
+      style="background: rgb(255, 102, 0)"
+      (click)="this.authFacade.fetchUserData(this.token$!)"
+    >
+      Delete Grid
+    </button>
+  </form>
+  <ag-grid-angular
+    [gridOptions]="gridOptions"
+    class="ag-theme-quartz"
+    style="height: auto"
+  />
+</div>

@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+/* Core Data Grid CSS */
+// @import "node_modules/ag-grid-community/styles/ag-grid.css";
+/* Quartz Theme Specific CSS */
+// @import "node_modules/ag-grid-community/styles/ag-theme-quartz.css";
 
 html,
 body {
@@ -10,16 +14,81 @@ body {
 }
 
 .container {
-  margin: 2em;
+  padding: 2em;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.main {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.col {
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-end {
+  justify-content: end !important;
 }
 
 .flex {
   display: flex;
   justify-content: center;
+}
+
+.button {
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  color: blue;
+}
+.align-center {
   align-items: center;
 }
 
-.col {
-  display: flex;
-  flex-direction: column;
+// angular gird styles
+.ag-theme-quartz {
+  // --ag-font-family: IBM Plex Sans Arabic;
+  --ag-font-size: 1em;
+  --ag-font-weight: 500;
+  --ag-line-height: 24px;
+  --ag-text-align: end;
+  --ag-text-color: #000000;
+
+  --ag-header-column-resize-handle-color: #f9fafb;
+  --ag-header-cell-background-color: #f9fafb;
+  --ag-borders: none;
+  --ag-header-height: 55px;
+  --ag-active-color: var(--primary-500);
+  --ag-input-focus-box-shadow: none;
+  --ag-wrapper-border-radius: 0;
+  --ag-foreground-color: #6a708b;
+  --ag-header-foreground-color: #000;
+
+  .ag-sort-order {
+    display: none;
+  }
+
+  .ag-checkbox-input-wrapper::after {
+    border-color: #000;
+    accent-color: var(--ag-active-color);
+  }
+  .ag-header-cell {
+    border-bottom: 1px solid #eff1f3;
+    background: #f9fafb;
+    gap: 12px;
+  }
+
+  .ag-cell {
+    align-content: center;
+    padding-inline-start: 16px;
+  }
+
+  .ag-row {
+    background: #ffffff;
+  }
 }

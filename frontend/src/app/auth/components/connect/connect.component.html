@@ -1,0 +1,60 @@
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <button mat-icon-button>
+            <i class="fab fa-github"></i>
+          </button>
+
+          Github
+          <button *ngIf="token$" mat-icon-button>
+            <i
+              class="fa fa-check-circle"
+              aria-hidden="true"
+              style="color: green"
+            ></i>
+          </button>
+          <button *ngIf="token$" mat-icon-button>
+            <i class="fa fa-history" aria-hidden="true"></i>
+          </button>
+          <div
+            *ngIf="token$"
+            class="flex col align-center"
+            style="color: gray; margin: 1px 2px; margin-left: auto"
+          >
+            <p style="margin: 0">
+              Admin: Last synced at {{ user$?.updatedAt | date : "short" }}
+            </p>
+            <p style="margin: 0">Sync Type: {{ "full" }}</p>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div *ngIf="!token$" class="col flex" style="justify-content: center">
+        <button class="button" mat-flat-button (click)="handleConnect()">
+          Connect
+        </button>
+        <h2 style="color: rgba(7, 10, 187, 0.829)">Connect Sredio to Github</h2>
+      </div>
+
+      <div *ngIf="token$" class="flex flex-end col">
+        <button
+          class="button"
+          style="margin-left: auto"
+          mat-flat-button
+          (click)="handleRemove()"
+        >
+          Remove
+          <i
+            class="fas fa-user-secret"
+            style="height: 24px; width: 24px; color: black"
+          ></i>
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div *ngIf="token$">
+    <app-list-info></app-list-info>
+  </div>
+</div>
